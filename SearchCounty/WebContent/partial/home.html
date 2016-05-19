@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>student Home page.</title>
+</head>
+<body>
+	<div page-header></div>
+	<div class="container">
+		<h2>Welcome to BOSCH</h2>
+		<!-- <p>{{message}}</p>
+		<a href="#/AddStudents">Add Student</a> <a href="#/viewStudents">
+			View Students List</a> -->
+		<!-- 
+		<div id="ajaxloader"></div>
+
+		<div id="loading">
+			<div id="loading-content">Loading...</div>
+		</div>
+
+		<input type="text" name="username" ng-model="myModel" clearable />
+	</div> -->
+
+		<script type="text/ng-template" id="customTemplate.html">
+      <div class="typeahead-group-header" ng-if="match.model.firstInGroup"> {{match.model.Match}} MATCHES FOR YOUR SEARCH</div>
+
+		<a>
+        <span ng-bind-html="match.model.name | typeaheadHighlight:query"></span>
+		<i>{{match.model.name}}<i>
+  		 </a>
+	
+</ul>
+</script>
+
+		<div class="form-search" ng-controller="autocompleteController">
+			Selected County: {{selectedCourses}} <br> <br> <input
+				type="text" ng-model="selectedCountries"
+				placeholder="Search Country"
+				typeahead="c as c.name for c in countries | filter:$viewValue | limitTo:13"
+				typeahead-min-length='1'
+				typeahead-template-url="customTemplate.html" class="form-control" ng-change="firstsearch(selectedCountries)"
+				style="width: 450px;">
+			<!-- <i
+				class="icon-search nav-search-icon"></i>
+ -->
+			<button ng-click="search()">Search</button>
+			<table id="stockReportTable1" class="col-sm-12 table table-bordered">
+				<tr>
+					<th style="width: 10%">FEATURE_NAME</th>
+					<th style="width: 10%">FEATURE_CLASS</th>
+					<th style="width: 10%">STATE_ALPHA</th>
+					<th style="width: 10%">COUNTY_NAME</th>
+					<th style="width: 10%">Elevation_m</th>
+					<th style="width: 10%">Elevation_ft</th>
+					<th style="width: 10%">MAP_NAME</th>
+					<th style="width: 10%">LOCATION</th>
+					<th style="width: 10%">DESCRIPTION</th>
+					<th style="width: 10%">HISTORY</th>
+				</tr>
+
+				<tr ng-repeat="d in docs">
+					<td>{{d.FEATURE_NAME}}</td>
+					<td>{{d.FEATURE_CLASS}}</td>
+					<td>{{d.STATE_ALPHA}}</td>
+					<td>{{d.COUNTY_NAME}}</td>
+					<td>{{d.Elevation_m}}</td>
+					<td>{{d.Elevation_ft}}</td>
+					<td>{{d.MAP_NAME}}</td>
+					<td>{{d.LOCATION}}</td>
+					<td>{{d.DESCRIPTION}}</td>
+					<td>{{d.HISTORY}}</td>
+
+				</tr>
+			</table>
+		</div>
+		<!-- 		<div page-footer></div>
+ -->
+</body>
+</html>

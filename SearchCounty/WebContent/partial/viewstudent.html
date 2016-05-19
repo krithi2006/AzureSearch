@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div ng-controller="StudentController" align="center">
+		<div class="container">
+			<h2>View Students</h2>
+			<ul>
+				<li ng-repeat="student in studentsapp | filter:name">{{student.name}}
+					 {{student.city}}</li>
+			</ul>
+
+			<a href="#/home"> Back</a>
+		</div>
+	</div>
+</body>
+</html>
